@@ -1,5 +1,14 @@
-import Countdown from "./Countdown"
+import Celebration from "./components/Celebration";
+import Countdown from "./components/Countdown";
+
 function App() {
-  return  <div><Countdown></Countdown></div>
+  const isBirthday = true;
+
+  return (
+    <div>
+      {isBirthday ? <Celebration /> : <Countdown />}
+    </div>
+  );
 }
-export default App
+
+export default App;

@@ -24,6 +24,7 @@ function Countdown() {
     const difference = targetDate - now;
     let timeLeft = {};
 
+    // if it is not richard's birthday, do a countdown
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -33,12 +34,14 @@ function Countdown() {
       };
     }
 
+    // todo: if it is richard's birthday, DO A HUGE CELEBRATION
+
     return timeLeft;
   }
 
   return (
-    <div>
-      <h1>Countdown to December 19</h1>
+    <>
+      <h1>Richard's Birthday Countdown</h1>
       {timeLeft.days !== undefined ? (
         <div>
           <p>{timeLeft.days} Days</p>
@@ -49,7 +52,7 @@ function Countdown() {
       ) : (
         <p>The countdown has finished!</p>
       )}
-    </div>
+    </>
   );
 }
 
