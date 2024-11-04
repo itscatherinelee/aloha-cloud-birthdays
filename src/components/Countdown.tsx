@@ -1,9 +1,20 @@
-// Countdown.js
 import { useEffect, useState } from "react";
 import Richard from "../assets/richard.png";
 import './Countdown.css';
 
-function Countdown({ today, birthday }) {
+// Define the type for the birthday prop
+interface Birthday {
+  month: number;
+  day: number;
+}
+
+// Define the type for Countdown component props
+interface CountdownProps {
+  today: Date;
+  birthday: Birthday;
+}
+
+function Countdown({ today, birthday }: CountdownProps) {
   const calculateTimeLeft = () => {
     // Calculate next birthday based on the current year
     const nextBirthday = new Date(today.getFullYear(), birthday.month - 1, birthday.day);
@@ -14,7 +25,7 @@ function Countdown({ today, birthday }) {
     }
 
     // Calculate time difference in milliseconds
-    const timeDifference = nextBirthday - new Date();
+    const timeDifference = nextBirthday.getTime() - today.getTime();
 
     // Calculate each time component
     const monthsLeft = nextBirthday.getMonth() - today.getMonth() + (nextBirthday.getFullYear() - today.getFullYear()) * 12;
@@ -39,12 +50,12 @@ function Countdown({ today, birthday }) {
   }, []);
 
   return (
-    <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', padding: '50px'}}>
-      <img className="image" src={Richard} alt=""></img>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '50px' }}>
+      <img className="image" src={Richard} alt="" />
       <h1>
         {timeLeft.monthsLeft} months {timeLeft.daysLeft} days {timeLeft.hoursLeft} hours {timeLeft.minutesLeft} minutes {timeLeft.secondsLeft} seconds
       </h1>
-      <img className="image" src={Richard} alt=""></img>
+      <img className="image" src={Richard} alt="" />
     </div>
   );
 }
