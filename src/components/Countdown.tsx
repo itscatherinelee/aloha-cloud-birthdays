@@ -1,5 +1,7 @@
 // Countdown.js
 import { useEffect, useState } from "react";
+import Richard from "../assets/richard.png";
+import './Countdown.css';
 
 function Countdown({ today, birthday }) {
   const calculateTimeLeft = () => {
@@ -37,11 +39,12 @@ function Countdown({ today, birthday }) {
   }, []);
 
   return (
-    <div>
-      <h1>Countdown to Birthday</h1>
-      <p>
-        {timeLeft.monthsLeft} months, {timeLeft.daysLeft} days, {timeLeft.hoursLeft} hours, {timeLeft.minutesLeft} minutes, {timeLeft.secondsLeft} seconds left until your birthday!
-      </p>
+    <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', padding: '50px'}}>
+      <img className="image" src={Richard} alt=""></img>
+      <h1>
+        {timeLeft.monthsLeft} months {timeLeft.daysLeft} days {timeLeft.hoursLeft} hours {timeLeft.minutesLeft} minutes {timeLeft.secondsLeft} seconds
+      </h1>
+      <img className="image" src={Richard} alt=""></img>
     </div>
   );
 }
