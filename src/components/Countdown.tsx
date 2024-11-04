@@ -2,21 +2,18 @@ import { useEffect, useState } from "react";
 import Richard from "../assets/richard.png";
 import './Countdown.css';
 
-// Define the type for the birthday prop
 interface Birthday {
   month: number;
   day: number;
 }
 
-// Define the type for Countdown component props
 interface CountdownProps {
-  today: Date;
   birthday: Birthday;
 }
 
-function Countdown({ today, birthday }: CountdownProps) {
+function Countdown({ birthday }: CountdownProps) {
   const calculateTimeLeft = () => {
-    // Calculate next birthday based on the current year
+    const today = new Date(); // Get the current date each time this function runs
     const nextBirthday = new Date(today.getFullYear(), birthday.month - 1, birthday.day);
 
     // If the birthday has already passed this year, set it to next year
@@ -29,7 +26,7 @@ function Countdown({ today, birthday }: CountdownProps) {
 
     // Calculate each time component
     const monthsLeft = nextBirthday.getMonth() - today.getMonth() + (nextBirthday.getFullYear() - today.getFullYear()) * 12;
-    const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24) % 30); // Days excluding full months
+    const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24) % 30);
     const hoursLeft = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
     const minutesLeft = Math.floor((timeDifference / (1000 * 60)) % 60);
     const secondsLeft = Math.floor((timeDifference / 1000) % 60);
@@ -40,12 +37,10 @@ function Countdown({ today, birthday }: CountdownProps) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    // Update countdown every second
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    // Clear interval on component unmount
     return () => clearInterval(timer);
   }, []);
 

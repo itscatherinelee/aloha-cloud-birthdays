@@ -4,7 +4,7 @@ import Countdown from "./components/Countdown";
 function App() {
   // Define your birthday date
   const birthday = {
-    month: 12, // November
+    month: 12,
     day: 19,
   };
 
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      {isBirthday() ? <Celebration/> : <Countdown today={today} birthday={birthday} />}
+      {isBirthday() ? <Celebration/> : <Countdown birthday={birthday} />}
     </div>
   );
 }
