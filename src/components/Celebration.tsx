@@ -1,4 +1,9 @@
 function Celebration() {
-    return <h1>HAPPY BIRTHDAY BIG BOI</h1>
+  return (
+    <div>
+      <h1>Happy Birthday!</h1>
+    </div>
+  );
 }
-export default Celebration
+
+export default Celebration;
