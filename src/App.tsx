@@ -1,30 +1,11 @@
 import { useEffect, useRef } from "react";
 import { BirthdayCountdown } from "./components/Countdown";
-import party from 'party-js';
+import Confetti from "./components/Confetti";
 
 function App() {
     const isConfettiOn = useRef(false);
-
     useEffect(() => {
-      const shootConfetti = (event: MouseEvent) => {
-        if (!isConfettiOn.current) {
-          isConfettiOn.current = true;
-  
-          party.confetti(event, {
-            count: party.variation.range(0, 5),
-            spread: 100,
-          });
-  
-          requestAnimationFrame(() => {
-            isConfettiOn.current = false;
-          });
-        }
-      };
-  
-      document.addEventListener('mousemove', shootConfetti);
-      return () => {
-        document.removeEventListener('mousemove', shootConfetti);
-      };
+      Confetti(isConfettiOn)
     }, []);
 
   return (
