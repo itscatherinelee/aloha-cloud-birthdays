@@ -1,58 +1,25 @@
-import { useEffect, useState } from "react";
 import Richard from "../assets/richard.png";
 import './Countdown.css';
+import Countdown from "react-countdown";
+import Celebration from "./Celebration";
 
-interface Birthday {
-  month: number;
-  day: number;
-}
 
-interface CountdownProps {
-  birthday: Birthday;
-}
-
-function Countdown({ birthday }: CountdownProps) {
-  const calculateTimeLeft = () => {
-    const today = new Date(); // Get the current date each time this function runs
-    const nextBirthday = new Date(today.getFullYear(), birthday.month - 1, birthday.day);
-
-    // If the birthday has already passed this year, set it to next year
-    if (today > nextBirthday) {
-      nextBirthday.setFullYear(today.getFullYear() + 1);
-    }
-
-    // Calculate time difference in milliseconds
-    const timeDifference = nextBirthday.getTime() - today.getTime();
-
-    // Calculate each time component
-    const monthsLeft = nextBirthday.getMonth() - today.getMonth() + (nextBirthday.getFullYear() - today.getFullYear()) * 12;
-    const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24) % 30);
-    const hoursLeft = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-    const minutesLeft = Math.floor((timeDifference / (1000 * 60)) % 60);
-    const secondsLeft = Math.floor((timeDifference / 1000) % 60);
-
-    return { monthsLeft, daysLeft, hoursLeft, minutesLeft, secondsLeft };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
+export function BirthdayCountdown() {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '50px' }}>
-      <img className="image" src={Richard} alt="" />
-      <h1>
-        {timeLeft.monthsLeft} months {timeLeft.daysLeft} days {timeLeft.hoursLeft} hours {timeLeft.minutesLeft} minutes {timeLeft.secondsLeft} seconds
-      </h1>
-      <img className="image" src={Richard} alt="" />
+      <img className="image" src={Richard} />
+        <Countdown
+          date={new Date("12-19-2024").setFullYear(new Date().getFullYear())}
+          renderer={({ days, hours, minutes, seconds, completed }) => {
+            if (completed) {
+              return <Celebration />
+            }
+            return <h1>{days} days {hours} hours {minutes} minutes {seconds} seconds</h1>
+          }}
+        >
+        </Countdown>
+      <img className="image" src={Richard} />
     </div>
   );
 }
 
-export default Countdown;
