@@ -1,17 +1,13 @@
 import { BirthdayCountdown } from "./components/Countdown";
 import { DvdRichard } from "./components/DvdRichard";
+import "./App.css";
 
 function App() {
 
   return (
     <div>
       <BirthdayCountdown />
-      <div style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: -2,
-      }}>
+      <div className="dvd-container">
         <DvdRichard size={250} />
       </div>
     </div>
