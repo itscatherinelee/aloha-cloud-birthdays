@@ -1,11 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function UpcomingBirthdays() {
   const navigate = useNavigate();
-
   const birthdayTable = [
-    { name: "Richard", birthday: "12/19" },
     { name: "Charles", birthday: "04/24" },
+    { name: "Richard", birthday: "12/19" },
   ];
 
   return (
@@ -17,12 +16,12 @@ function UpcomingBirthdays() {
             className="list-group-item"
             key={person.name}
             onClick={() => navigate(`/${person.name}`)}
+            style={{ cursor: "pointer" }}
           >
             {person.name}
           </li>
         ))}
       </ul>
-      <Link to="/">Back</Link>
     </>
   );
 }
