@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { BirthdayCountdown } from "./components/Countdown";
-import { DvdRichard } from "./components/DvdRichard";
+import { CountdownRichard } from "./components/richard/CountdownRichard";
+import { DvdRichard } from "./components/richard/DvdRichard";
 import "./App.css";
 import Confetti from "./components/Confetti";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <Link to="/upcoming">Upcoming Birthdays!</Link>
-      <BirthdayCountdown />
+      <CountdownRichard />
       <div className="dvd-container">
         <DvdRichard size={250} />
       </div>
