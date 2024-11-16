@@ -5,7 +5,7 @@ import CelebrationRichard from "./CelebrationRichard";
 import { DvdRichard } from "./DvdRichard";
 import { RollingAlert } from "./RollingAlertRichard";
 
-export function CountdownRichard() {
+function CountdownRichard() {
   return (
     <>
       <div
@@ -39,3 +39,4 @@ export function CountdownRichard() {
     </>
   );
 }
+export default CountdownRichard;
