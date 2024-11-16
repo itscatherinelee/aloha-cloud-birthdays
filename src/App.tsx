@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <Link to="/upcoming">Upcoming Birthdays!</Link>
+      <Link to="/upcoming">Who's Next?????!</Link>
       <CountdownRichard />
       <div className="dvd-container">
         <DvdRichard size={250} />
