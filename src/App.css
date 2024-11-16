@@ -1,3 +1,11 @@
+body {
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
 .image {
     height: 420px;
     padding: 50px;
@@ -11,7 +19,6 @@
     top: 0;
     left: 0;
     z-index: -2;
-    background-color: pink;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
