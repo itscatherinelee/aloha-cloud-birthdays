@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function UpcomingBirthdays() {
+  const navigate = useNavigate();
+
   const birthdayTable = [
     { name: "Richard", birthday: "12/19" },
     { name: "Charles", birthday: "04/24" },
   ];
-
-  const handleClick = (event: React.MouseEvent) => console.log(event);
 
   return (
     <>
@@ -16,15 +16,15 @@ function UpcomingBirthdays() {
           <li
             className="list-group-item"
             key={person.name}
-            onClick={handleClick}
+            onClick={() => navigate(`/${person.name}`)}
           >
             {person.name}
           </li>
         ))}
-        ;
       </ul>
       <Link to="/">Back</Link>
     </>
   );
 }
+
 export default UpcomingBirthdays;
