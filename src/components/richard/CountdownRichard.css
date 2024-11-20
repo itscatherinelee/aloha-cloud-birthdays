@@ -5,6 +5,9 @@ body {
 h1 {
     background-color: pink;
 }
+h2 {
+    background-color: rgb(231, 152, 231);
+}
 .image {
     height: 420px;
     padding: 50px;
@@ -12,6 +15,14 @@ h1 {
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
 }
+.thanksgiving-container {
+    display: flex;            /* Enable Flexbox */
+    flex-direction: column;   /* Stack items vertically */
+    align-items: center;      /* Center items horizontally */
+    text-align: center;       /* Center-align the text */
+    gap: 10px;                /* Optional: Add space between h1 and h2 */
+  }
+  
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

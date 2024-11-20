@@ -24,9 +24,13 @@ function CountdownRichard() {
               return <CelebrationRichard />;
             }
             return (
-              <h1>
-                {days} days {hours} hours {minutes} minutes {seconds} seconds
-              </h1>
+              <div className="thanksgiving-container">
+                <h1>🦃 HAPPY THANKSGIVING 🦃</h1>
+                <h2>
+                  and happy {days} days {hours} hours {minutes} minutes
+                  {seconds} seconds until Richard's birthday
+                </h2>
+              </div>
             );
           }}
         ></Countdown>
