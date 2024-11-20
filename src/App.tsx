@@ -9,11 +9,7 @@ function App() {
     Confetti(isConfettiOn);
   }, []);
 
-  return (
-    <div>
-      <CountdownRichard />
-    </div>
-  );
+  return <CountdownRichard />;
 }
 
 export default App;

@@ -31,6 +31,7 @@ export function RollingAlert() {
         style={{
           fontFamily: "comic sans ms",
           color: colors[colorIndex],
+          backgroundColor: "pink",
         }}
       >
         !!🚨ALERT ALERT ALERT🚨!! BRAKING NEWS: RICHARDS BDAY IS SOON (TM) I
