@@ -1,3 +1,13 @@
+.background {
+    background-image: url('../../assets/richard/background-richard.gif');
+    background-repeat: repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+}
+
 .image {
     height: 420px;
     padding: 50px;
@@ -5,6 +15,23 @@
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
 }
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: pink;
+    font-family: cursive;
+}
+
+.horizontal-container {
+    display: flex;           
+    align-items: center;        
+    justify-content: center;     
+    gap: 20px;            
+    padding: 20px;           
+}
+  
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
