@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../assets/richard/background-richard.gif');
+    background-repeat: repeat;
+    background-position: center;
+  }
 .image {
     height: 420px;
     padding: 50px;
