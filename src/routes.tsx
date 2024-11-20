@@ -1,4 +1,5 @@
 import App from "./App";
+import CountdownCharles from "./components/charles/CountdownCharles";
 import CountdownRichard from "./components/richard/CountdownRichard";
 import Layout from "./layout";
 import UpcomingBirthdays from "./components/UpcomingBirthdays";
@@ -10,6 +11,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "", element: <App /> },
+      { path: "charles", element: <CountdownCharles /> },
       { path: "richard", element: <CountdownRichard /> },
       { path: "upcoming", element: <UpcomingBirthdays /> },
     ],
